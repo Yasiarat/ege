@@ -1,0 +1,24 @@
+start = 0o10000000000
+stop = 0o77777777777
+count = 0
+
+
+def count_sog(x:str):
+    last = 16
+    c = 0
+    for i in range(len(x)):
+        if x[i] in '1357':
+            if last == i - 1 or c > 3:
+                return False
+            last = i
+            c += 1
+    return True
+
+
+for i in range(start, stop):
+    n = str(i)
+    if '8' in n or '9' in n:
+        continue
+    if count_sog(n):
+        count += 1
+print(count)
