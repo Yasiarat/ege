@@ -1,0 +1,33 @@
+'''
+from fnmatch import fnmatch
+
+
+for i in range(2023, 10 ** 10, 2023):
+    n = str(i)
+    if fnmatch(n, '1?2139*4'):
+        print(f'{i=}  {i//2023=} ')
+
+'''
+'''
+from fnmatch import fnmatch
+
+
+for i in range(2023, 10**10, 2023):
+    n = str(i)
+    if fnmatch(n, '1?1?1?1*1'):
+        sm = 0
+        for j in n:
+            sm += int(j)
+        if sm == 22:
+            print(f'{i=}  {i//2023=}')
+'''
+
+
+from itertools import permutations, product, combinations, combinations_with_replacement
+
+s = '01'
+
+print(*permutations(s), sep="\n", end="\n\n")
+print(*product(s, repeat=2), sep="\n", end="\n\n")
+print(*combinations(s, 2), sep="\n", end="\n\n")
+print(*combinations_with_replacement(s, 2), sep="\n")
