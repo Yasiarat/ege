@@ -1,0 +1,26 @@
+def Type_27_15852():
+    with open('Type_27/27-B (15852).txt') as file:
+        f = [int(i) for i in file]
+
+    def div_count(n, divaizor):
+        n_div = 0        
+        while n % divaizor == 0:
+            n_div += 1            
+            n = n // divaizor
+            if n_div == 8:
+                return n_div
+        return n_div
+
+    count_2_5 = [[0 for i in range(9)] for i in range(9)]
+    for number in f:
+        count_2_5[div_count(number, 5)][div_count(number, 2)] += 1    for line in count_2_5:
+        print(line)
+
+
+    cnt = 0    for i in range(9):
+        for j in range(9):
+            for k in range(9):
+                for n in range(9):
+                    if i + k >= 7 and j + n == 7 or i + k == 7 and j + n >= 7:
+                        cnt += count_2_5[i][j] * count_2_5[k][n]
+    print(cnt//2)
